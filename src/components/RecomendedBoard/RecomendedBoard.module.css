@@ -1,0 +1,178 @@
+/* .container {
+  margin: 0 auto;
+  margin-left: 0;
+  width: 200px;
+  background-color: #141414;
+} */
+
+.contentContainer {
+  box-sizing: border-box;
+  width: 335px;
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: #1f1f1f;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 10px;
+}
+
+.pFilters {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #f9f9f9;
+  margin-bottom: 8px;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.label {
+  position: absolute;
+  left: 14px;
+  top: 40%;
+  transform: translateY(-40%);
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #686868;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 295px;
+}
+
+.input {
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  width: 295px;
+  height: 44px;
+  background-color: #262626;
+  color: #f9f9f9;
+  margin-bottom: 8px;
+}
+
+.input::placeholder {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+
+  color: #f9f9f9;
+}
+
+.bookTitle {
+  padding-left: 77px;
+}
+
+.author {
+  padding-left: 85px;
+}
+
+.toApplyBtn {
+  border: 1px solid rgba(249, 249, 249, 0.2);
+  border-radius: 30px;
+  width: 98px;
+  height: 38px;
+  background-color: transparent;
+  margin-top: 12px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: 0.02em;
+  color: #f9f9f9;
+}
+
+.toApplyBtn:hover {
+  background-color: #f9f9f9;
+  color: #1f1f1f;
+}
+
+.workoutDiv {
+  background-color: #262626;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.workoutP {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+.div1 {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.img {
+  min-width: 40px;
+  min-height: 40px;
+  flex-shrink: 0;
+}
+
+.p1 {
+  max-width: 180px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #686868;
+}
+
+.div2 {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.p2 {
+  max-width: 200px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #686868;
+}
+
+.span {
+  color: #f9f9f9;
+}
+
+.libraryDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #686868;
+}
+
+.arrowBtn {
+  border: none;
+  background-color: transparent;
+}
+
+.svg {
+  width: 24px;
+  height: 24px;
+}

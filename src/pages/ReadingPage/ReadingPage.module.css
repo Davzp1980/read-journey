@@ -1,0 +1,50 @@
+.ReadingContainer {
+  box-sizing: border-box;
+  width: 335px;
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: #1f1f1f;
+  padding: 40px 20px 20px 20px;
+  margin-bottom: 40px;
+}
+
+.myReadingH2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #f9f9f9;
+
+  margin-bottom: 40px;
+}
+
+.ReadingBookCurrent {
+  max-width: 50%;
+  margin: 0 auto;
+
+  margin-bottom: 20px;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.whiteCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  border: 2px solid #f9f9f9;
+  border-radius: 100%;
+}
+
+.redCircle {
+  width: 30px;
+  height: 30px;
+  background-color: #e90516;
+  border-radius: 100%;
+}
