@@ -1,10 +1,3 @@
-.container {
-  margin: 0 auto;
-  width: 375px;
-  padding: 20px 20px 20px 20px;
-  background-color: #141414;
-}
-
 .contentContainer {
   box-sizing: border-box;
   border-radius: 30px;
@@ -13,8 +6,22 @@
   margin-bottom: 10px;
 }
 
+.logoDiv {
+  display: flex;
+}
+
 .logo {
   margin-bottom: 40px;
+}
+
+.logoText {
+  display: none;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #f9f9f9;
 }
 
 .h1 {
@@ -115,10 +122,6 @@
   letter-spacing: -0.02em;
 
   color: #f9f9f9;
-}
-
-.inputName {
-  padding-left: 59px;
 }
 
 .inputEmail {
@@ -232,4 +235,101 @@
   background-color: #1f1f1f;
   padding: 20px 40px 0 40px;
   margin-bottom: 10px;
+}
+
+/* Планшетні пристрої (768px) */
+@media (min-width: 768px) {
+  .container {
+    margin: 0 auto;
+    max-width: 768px;
+    padding: 32px;
+  }
+
+  .contentContainer {
+    padding: 40px 0 214px 64px;
+  }
+
+  .logoText {
+    display: block;
+  }
+
+  .h1 {
+    width: 444px;
+    font-size: 64px;
+    line-height: 94%;
+    margin-bottom: 40px;
+  }
+
+  .inputWrapper {
+    width: 472px;
+  }
+
+  .input {
+    width: 100%;
+    height: 50px;
+  }
+
+  .input::placeholder {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .label {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .labelPassword {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .inputPassword {
+    width: 100%;
+    height: 50px;
+  }
+
+  .inputPassword::placeholder {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .inputEmail {
+    padding-left: 53px;
+  }
+
+  .inputPassword {
+    padding-left: 86px;
+  }
+
+  .passwordBtn {
+    top: 15px;
+    right: 18px;
+  }
+
+  .svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .btnDiv {
+    margin-top: 146px;
+    gap: 20px;
+  }
+
+  .submitBtn {
+    width: 166px;
+    height: 52px;
+    font-size: 20px;
+    line-height: 100%;
+  }
+
+  .loginLink {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .photoContainer {
+    display: none;
+  }
 }

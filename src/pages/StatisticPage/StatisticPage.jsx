@@ -1,25 +1,43 @@
 /* eslint-disable react/no-children-prop */
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DashBoard from '../../components/DashBoard/DashBoard';
-import ReadingBoard from '../../components/ReadingBoard/ReadingBoard';
-import css from './ReadingPage.module.css';
+
+import css from './StatisticPage.module.css';
 import { selectCurrentBook } from '../../redux/books/selectors';
+import { getUsersBooks } from '../../redux/books/operations';
+import { useEffect } from 'react';
+
+import StopReadingBoard from '../../components/StopReadingBoard/StopReadingBoard';
 import ReadingBookCurrent from '../../components/ReadingBookCurrent/ReadingBookCurrent';
 import { useNavigate } from 'react-router';
 
-function ReadingPage() {
+function StatisticPage() {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const currentBook = useSelector(selectCurrentBook);
 
   function handleOnClick() {
-    navigate('/statistic');
+    navigate('/reading');
   }
+
+  useEffect(() => {
+    dispatch(getUsersBooks());
+  }, [dispatch]);
 
   return (
     <div>
-      <DashBoard children={<ReadingBoard />} />
+      <DashBoard children={<StopReadingBoard />} />
+
       <div className={css.ReadingContainer}>
-        <h2 className={css.myReadingH2}>My reading</h2>
+        <div className={css.myReadingDiv}>
+          <h2 className={css.myReadingH2}>My reading</h2>
+          <p className={css.pTime}>
+            {currentBook.timeLeftToRead.hours} hours and{' '}
+            {currentBook.timeLeftToRead.minutes} minutes left
+          </p>
+        </div>
+
         <div className={css.ReadingBookCurrent}>
           <ReadingBookCurrent book={currentBook} />
         </div>
@@ -33,4 +51,4 @@ function ReadingPage() {
   );
 }
 
-export default ReadingPage;
+export default StatisticPage;

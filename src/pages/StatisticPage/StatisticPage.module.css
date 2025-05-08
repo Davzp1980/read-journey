@@ -1,0 +1,179 @@
+.myLibraryContainer {
+  box-sizing: border-box;
+  width: 335px;
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: #1f1f1f;
+  padding: 40px 20px 20px 20px;
+  margin-bottom: 40px;
+}
+
+.h2AndMenu {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 63px;
+}
+
+.myLibraryH2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #f9f9f9;
+}
+
+.selectContainer {
+  position: relative;
+  min-width: 120px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border: 1px solid #3e3e3e;
+  border-radius: 12px;
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 16px;
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px 0;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.option {
+  padding: 10px 15px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: background 0.3s, color 0.3s;
+}
+
+.option:hover {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+.selectedOption {
+  color: white;
+}
+.noBooksDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 197px;
+  margin: 0 auto;
+}
+
+.imgDiv {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: #262626;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 10px;
+}
+
+.booksImg {
+}
+
+.booksP {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #f9f9f9;
+}
+
+.span {
+  color: #686868;
+}
+
+.swiperContainer {
+  margin-bottom: 100px;
+}
+
+.ReadingContainer {
+  box-sizing: border-box;
+  width: 335px;
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: #1f1f1f;
+  padding: 40px 20px 20px 20px;
+  margin-bottom: 40px;
+}
+
+.myReadingH2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #f9f9f9;
+
+  margin-bottom: 40px;
+}
+
+.ReadingBookCurrent {
+  max-width: 50%;
+  margin: 0 auto;
+
+  margin-bottom: 20px;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.whiteCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  border: 2px solid #f9f9f9;
+  border-radius: 100%;
+}
+
+.redCircle {
+  width: 30px;
+  height: 30px;
+  background-color: #e90516;
+  border-radius: 100%;
+}
+
+.pTime {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #686868;
+}
+
+.myReadingDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}

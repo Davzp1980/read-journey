@@ -65,3 +65,29 @@ export const deleteUsersBook = createAsyncThunk(
     }
   }
 );
+
+export const addBookStartPage = createAsyncThunk(
+  'books/addBookStartPage',
+  async function (data, thunkAPI) {
+    try {
+      const res = await axios.post(`/books/reading/start`, data);
+
+      return res.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
+export const addBookEndPage = createAsyncThunk(
+  'books/addBookEndPage',
+  async function (data, thunkAPI) {
+    try {
+      const res = await axios.post(`/books/reading/finish`, data);
+
+      return res.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);

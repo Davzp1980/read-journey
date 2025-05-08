@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { getBooksRecommend } from './redux/books/operations';
 import LibraryPage from './pages/LibraryPage/LibraryPage';
 import ReadingPage from './pages/ReadingPage/ReadingPage';
+import StatisticPage from './pages/StatisticPage/StatisticPage';
 
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
@@ -82,6 +83,15 @@ function App() {
                   <PrivateRoute
                     redirectTo="/login"
                     component={<ReadingPage />}
+                  />
+                }
+              />
+              <Route
+                path="/statistic"
+                element={
+                  <PrivateRoute
+                    redirectTo="/login"
+                    component={<StatisticPage />}
                   />
                 }
               />

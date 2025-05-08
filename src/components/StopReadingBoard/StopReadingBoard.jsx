@@ -1,32 +1,29 @@
 import { useForm } from 'react-hook-form';
-import css from './ReadingBoard.module.css';
+import css from './StopReadingBoard.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import clsx from 'clsx';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addBookStartPage, addNewBook } from '../../redux/books/operations';
+import { addBookEndPage } from '../../redux/books/operations';
 import toast from 'react-hot-toast';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { selectCurrentBook } from '../../redux/books/selectors';
 
-import {
-  selectCurrentBook,
-  selectRecomendedBooks,
-} from '../../redux/books/selectors';
-import BookItemLibrary from '../BookItemLibrary/BookItemLibrary';
 import AddToLibraryModal from '../AddToLibraryModal/AddToLibraryModal';
 import { selectIsLibraryModalOpen } from '../../redux/filters/selectors';
 import { setCurrentBook } from '../../redux/books/slice';
+import { Circle } from 'rc-progress';
+import { useState } from 'react';
 
-function ReadingBoard() {
+function StopReadingBoard() {
   const dispatch = useDispatch();
 
-  const books = useSelector(selectRecomendedBooks);
   const book = useSelector(selectCurrentBook);
 
-  // console.log(book);
+  const [percent, setPercent] = useState(0);
+  const [lastPage, setLastPage] = useState(0);
 
   const isLibraryModalOpen = useSelector(selectIsLibraryModalOpen);
 
@@ -48,13 +45,23 @@ function ReadingBoard() {
 
   function onSubmit(data) {
     dispatch(
-      addBookStartPage({
+      addBookEndPage({
         id: book._id,
         page: data.pageNumber,
       })
     )
       .unwrap()
       .then(data => {
+        const lastArrItem =
+          data.progress.length > 0
+            ? data.progress[data.progress.length - 1]
+            : null;
+
+        console.log(data.timeLeftToRead);
+
+        setPercent((lastArrItem.finishPage / data.totalPages) * 100);
+        setLastPage(lastArrItem.finishPage);
+
         dispatch(setCurrentBook(data));
 
         toast.success('The book`s start page number was successfully added');
@@ -66,9 +73,10 @@ function ReadingBoard() {
 
     reset();
   }
+
   return (
     <div className={css.contentContainer}>
-      <p className={css.pPage}>Start page:</p>
+      <p className={css.pPage}>Stop page:</p>
 
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.inputWrapper}>
@@ -88,24 +96,34 @@ function ReadingBoard() {
         )}
 
         <button className={css.toApplyBtn} type="submit">
-          To start
+          To stop
         </button>
       </form>
-      <p className={css.pProcess}>Progress</p>
+      <p className={css.pStatistics}>Statistics</p>
 
-      <p className={css.pText}>
-        Here you will see when and how much you read. To record, click on the
-        red button above.
-      </p>
-      <img
-        className={css.noBooksIMG}
-        src="/public/noReadingBooksMobile.webp"
-        alt="noReadingBooksMobile"
-      />
+      <div className={css.statisticsDiv}>
+        <div className={css.circleDiv}>
+          <p className={css.percent}>100%</p>
+          <Circle
+            percent={percent}
+            strokeWidth={11}
+            strokeColor="#30b94d"
+            trailWidth={11}
+            trailColor="#1f1f1f"
+          />
+        </div>
+        <div className={css.percentPages}>
+          <div className={css.greenSquare}></div>
+          <div className={css.pagesRead}>
+            <p className={css.pPercent}>{Math.round(percent)}%</p>
+            <p className={css.pPages}>{lastPage} pages read</p>
+          </div>
+        </div>
+      </div>
 
       {isLibraryModalOpen && <AddToLibraryModal book={book} />}
     </div>
   );
 }
 
-export default ReadingBoard;
+export default StopReadingBoard;
