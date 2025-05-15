@@ -26,16 +26,12 @@ function StatisticPage() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={css.statisticContainer}>
       <DashBoard children={<StopReadingBoard />} />
 
       <div className={css.ReadingContainer}>
         <div className={css.myReadingDiv}>
           <h2 className={css.myReadingH2}>My reading</h2>
-          <p className={css.pTime}>
-            {currentBook.timeLeftToRead.hours} hours and{' '}
-            {currentBook.timeLeftToRead.minutes} minutes left
-          </p>
         </div>
 
         <div className={css.ReadingBookCurrent}>

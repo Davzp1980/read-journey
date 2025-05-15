@@ -67,7 +67,7 @@ function LoginPage() {
   }
 
   return (
-    <>
+    <div className={css.loginContainer}>
       <div className={css.contentContainer}>
         <div className={css.logoDiv}>
           <Link to="/">
@@ -168,9 +168,16 @@ function LoginPage() {
         </form>
       </div>
       <div className={css.photoContainer}>
-        <img src="/img/iPhone-15-Black-1.webp" alt="iPhone-15" />
+        <picture>
+          <source
+            srcSet="/img/iPhone_15_Black_PC.webp"
+            media="(min-width: 1440px)"
+          />
+
+          <img src="/img/iPhone-15-Black-1.webp" alt="iPhone-15" />
+        </picture>
       </div>
-    </>
+    </div>
   );
 }
 

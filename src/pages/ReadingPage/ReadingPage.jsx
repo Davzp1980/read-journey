@@ -16,7 +16,7 @@ function ReadingPage() {
   }
 
   return (
-    <div>
+    <div className={css.readingPageContainer}>
       <DashBoard children={<ReadingBoard />} />
       <div className={css.ReadingContainer}>
         <h2 className={css.myReadingH2}>My reading</h2>

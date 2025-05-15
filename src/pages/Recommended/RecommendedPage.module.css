@@ -1,7 +1,7 @@
 .contentContainer {
   position: relative;
   box-sizing: border-box;
-  width: 335px;
+
   margin: 0 auto;
   border-radius: 30px;
   background-color: #1f1f1f;
@@ -77,4 +77,23 @@ h2 {
   height: 16px;
   transform: rotate(180deg);
   color: #f9f9f933;
+}
+
+/* Планшетні пристрої (768px) */
+@media (min-width: 768px) {
+  .contentContainer {
+    margin: 0;
+  }
+}
+
+/* PC (1440px) */
+@media (min-width: 1440px) {
+  .recomendedContainer {
+    display: flex;
+    gap: 15px;
+  }
+
+  .sliderContainer {
+    width: 847px;
+  }
 }

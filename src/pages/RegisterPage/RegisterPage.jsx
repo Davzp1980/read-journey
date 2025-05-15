@@ -63,11 +63,14 @@ function RegisterPage() {
   }
 
   return (
-    <div className={css.container}>
+    <div className={css.registerContainer}>
       <div className={css.contentContainer}>
-        <Link to="/">
-          <img className={css.logo} src="/img/Logo_mobile.webp" alt="logo" />
-        </Link>
+        <div className={css.logoDiv}>
+          <Link to="/">
+            <img className={css.logo} src="/img/Logo_mobile.webp" alt="logo" />
+          </Link>
+          <p className={css.logoText}>read journey</p>
+        </div>
         <h1 className={css.h1}>
           Expand your mind, reading <span className={css.span}>a book</span>
         </h1>
@@ -178,7 +181,14 @@ function RegisterPage() {
         </form>
       </div>
       <div className={css.photoContainer}>
-        <img src="/img/iPhone-15-Black-1.webp" alt="iPhone-15" />
+        <picture>
+          <source
+            srcSet="/img/iPhone_15_Black_PC.webp"
+            media="(min-width: 1440px)"
+          />
+
+          <img src="/img/iPhone-15-Black-1.webp" alt="iPhone-15" />
+        </picture>
       </div>
     </div>
   );

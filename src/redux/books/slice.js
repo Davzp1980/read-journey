@@ -23,9 +23,7 @@ const booksSlice = createSlice({
     favorites: [],
     library: [],
     book: [],
-    isModalAddBookOk: false,
-    isLoading: false,
-    error: null,
+    timeData: {},
   },
 
   extraReducers: builder => {
@@ -73,9 +71,13 @@ const booksSlice = createSlice({
     setAddBookToLibrary(state, action) {
       state.library.push(action.payload);
     },
+    setTimeData(state, action) {
+      state.timeData.push(action.payload);
+    },
   },
 });
 
-export const { setCurrentBook, setAddBookToLibrary } = booksSlice.actions;
+export const { setCurrentBook, setAddBookToLibrary, setTimeData } =
+  booksSlice.actions;
 
 export const booksReducer = booksSlice.reducer;

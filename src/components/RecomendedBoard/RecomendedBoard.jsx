@@ -6,8 +6,10 @@ import clsx from 'clsx';
 import { Link } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { setBookAuthor, setBookTitle } from '../../redux/filters/slice';
+import { useMediaQuery } from 'react-responsive';
 
 function RecomendedBoard() {
+  const isPCScreen = useMediaQuery({ query: '(min-width: 1440px)' });
   const dispatch = useDispatch();
 
   const ValidationSchema = yup.object().shape({
@@ -26,68 +28,81 @@ function RecomendedBoard() {
   }
   return (
     <div className={css.contentContainer}>
-      <p className={css.pFilters}>Filters:</p>
+      <div className={css.boardContainer}>
+        <div>
+          <p className={css.pFilters}>Filters:</p>
 
-      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={css.inputWrapper}>
-          <label className={css.label} htmlFor="bookTitle">
-            Book title:
-          </label>
-          <input
-            className={clsx(css.bookTitle, css.input)}
-            id="bookTitle"
-            type="text"
-            {...register('bookTitle')}
-            placeholder="Enter text"
-          />
-        </div>
+          <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor="bookTitle">
+                Book title:
+              </label>
+              <input
+                className={clsx(css.bookTitle, css.input)}
+                id="bookTitle"
+                type="text"
+                {...register('bookTitle')}
+                placeholder="Enter text"
+              />
+            </div>
 
-        <div className={css.inputWrapper}>
-          <label className={css.label} htmlFor="author">
-            The author:
-          </label>
-          <input
-            className={clsx(css.author, css.input)}
-            id="author"
-            type="text"
-            {...register('author')}
-            placeholder="Enter text"
-          />
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor="author">
+                The author:
+              </label>
+              <input
+                className={clsx(css.author, css.input)}
+                id="author"
+                type="text"
+                {...register('author')}
+                placeholder="Enter text"
+              />
+            </div>
+            <button className={css.toApplyBtn} type="submit">
+              To apply
+            </button>
+          </form>
         </div>
-        <button className={css.toApplyBtn} type="submit">
-          To apply
-        </button>
-      </form>
-      <div className={css.workoutDiv}>
-        <p className={css.workoutP}>Start your workout</p>
-        <div className={css.div1}>
-          <div className={css.img}>
-            <img src="/img/1.webp" alt="1" />
+        <div className={css.workoutDiv}>
+          <p className={css.workoutP}>Start your workout</p>
+          <div className={css.div1}>
+            <div className={css.img}>
+              <img src="/img/1.webp" alt="1" />
+            </div>
+            <p className={css.p1}>
+              <span className={css.span}>Create a personal library:</span> add
+              the books you intend to read to it.
+            </p>
           </div>
-          <p className={css.p1}>
-            <span className={css.span}>Create a personal library:</span> add the
-            books you intend to read to it.
-          </p>
-        </div>
-        <div className={css.div2}>
-          <div className={css.img}>
-            <img src="/img/2.webp" alt="2" />
+          <div className={css.div2}>
+            <div className={css.img}>
+              <img src="/img/2.webp" alt="2" />
+            </div>
+            <p className={css.p2}>
+              <span className={css.span}>Create your first workout:</span>{' '}
+              define a goal, choose a period, start training.
+            </p>
           </div>
-          <p className={css.p2}>
-            <span className={css.span}>Create your first workout:</span> define
-            a goal, choose a period, start training.
-          </p>
+          <div className={css.libraryDiv}>
+            <Link className={css.link} to="/library">
+              My library
+            </Link>
+            <button className={css.arrowBtn} type="button">
+              <svg className={css.svg}>
+                <use href="/sprite.svg#log-in"></use>
+              </svg>
+            </button>
+          </div>
         </div>
-        <div className={css.libraryDiv}>
-          <Link className={css.link} to="/library">
-            My library
-          </Link>
-          <button className={css.arrowBtn} type="button">
-            <svg className={css.svg}>
-              <use href="/sprite.svg#log-in"></use>
-            </svg>
-          </button>
-        </div>
+        {isPCScreen && (
+          <div className={css.bookPhotoAndTextDiv}>
+            <img src="/img/books_pc.webp" alt="books photo" />
+            <p className={css.booksText}>
+              &#34;Books are <span className={css.span}>windows</span> to the
+              world, and reading is a journey into the unknown.&#34;
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

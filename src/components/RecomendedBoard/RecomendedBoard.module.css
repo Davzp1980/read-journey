@@ -1,13 +1,6 @@
-/* .container {
-  margin: 0 auto;
-  margin-left: 0;
-  width: 200px;
-  background-color: #141414;
-} */
-
 .contentContainer {
   box-sizing: border-box;
-  width: 335px;
+
   margin: 0 auto;
   border-radius: 30px;
   background-color: #1f1f1f;
@@ -63,7 +56,6 @@
   font-size: 12px;
   line-height: 133%;
   letter-spacing: -0.02em;
-
   color: #f9f9f9;
 }
 
@@ -99,6 +91,8 @@
   background-color: #262626;
   border-radius: 12px;
   padding: 20px;
+  height: 272px;
+  margin-bottom: 35px;
 }
 
 .workoutP {
@@ -175,4 +169,108 @@
 .svg {
   width: 24px;
   height: 24px;
+}
+
+/* Планшетні пристрої (768px) */
+@media (min-width: 768px) {
+  .contentContainer {
+    padding: 32px;
+  }
+
+  .pFilters {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .form {
+    margin-bottom: 0;
+  }
+
+  .label {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .input {
+    height: 50px;
+  }
+
+  .input::placeholder {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .bookTitle {
+    padding-left: 86px;
+  }
+
+  .author {
+    padding-left: 95px;
+  }
+
+  .toApplyBtn {
+    width: 122px;
+    height: 42px;
+    margin-top: 20px;
+
+    font-size: 16px;
+    line-height: 112%;
+  }
+
+  .boardContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .workoutP {
+    font-size: 20px;
+    line-height: 100%;
+  }
+
+  .img {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .p1 {
+    max-width: 197px;
+  }
+}
+
+/* PC (1440px) */
+@media (min-width: 1440px) {
+  .contentContainer {
+    margin: 0;
+  }
+
+  .input {
+    width: 313px;
+    height: 50px;
+  }
+  .boardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .bookPhotoAndTextDiv {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    background-color: #262626;
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .booksText {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #686868;
+  }
+
+  .span {
+    color: #f9f9f9;
+  }
 }

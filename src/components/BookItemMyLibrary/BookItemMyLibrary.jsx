@@ -21,8 +21,13 @@ function BookItemMyLibrary({ book }) {
     dispatch(deleteUsersBook(book._id));
   }
   return (
-    <div className={css.bookContainer} onClick={onClickPhoto}>
-      <img className={css.img} src={book.imageUrl} alt="Book photo" />
+    <div className={css.bookContainer}>
+      <img
+        className={css.img}
+        src={book.imageUrl}
+        alt="Book photo"
+        onClick={onClickPhoto}
+      />
 
       <div className={css.deleteDiv}>
         <div>

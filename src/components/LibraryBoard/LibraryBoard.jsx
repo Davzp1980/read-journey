@@ -18,6 +18,7 @@ import {
 import BookItemLibrary from '../BookItemLibrary/BookItemLibrary';
 import AddToLibraryModal from '../AddToLibraryModal/AddToLibraryModal';
 import { selectIsLibraryModalOpen } from '../../redux/filters/selectors';
+import { Link } from 'react-router';
 
 function LibraryBoard() {
   const dispatch = useDispatch();
@@ -56,63 +57,77 @@ function LibraryBoard() {
   }
   return (
     <div className={css.contentContainer}>
-      <p className={css.pFilters}>Filters:</p>
+      <div className={css.myLibraryBoardContainer}>
+        <div>
+          <p className={css.pFilters}>Filters:</p>
 
-      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={css.inputWrapper}>
-          <label className={css.label} htmlFor="bookTitle">
-            Book title:
-          </label>
-          <input
-            className={clsx(css.bookTitle, css.input)}
-            id="bookTitle"
-            type="text"
-            {...register('bookTitle')}
-            placeholder="I See You Are Interested In The Dark"
-          />
+          <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor="bookTitle">
+                Book title:
+              </label>
+              <input
+                className={clsx(css.bookTitle, css.input)}
+                id="bookTitle"
+                type="text"
+                {...register('bookTitle')}
+                placeholder="I See You Are Interested In The Dark"
+              />
+            </div>
+
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor="author">
+                The author:
+              </label>
+              <input
+                className={clsx(css.author, css.input)}
+                id="author"
+                type="text"
+                {...register('author')}
+                placeholder="Hilarion Pavlyuk"
+              />
+            </div>
+
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor="numberOfPages">
+                Number of pages:
+              </label>
+              <input
+                className={clsx(css.numberOfPages, css.input)}
+                id="numberOfPages"
+                type="text"
+                {...register('numberOfPages')}
+                placeholder="664"
+              />
+            </div>
+            <button className={css.toApplyBtn} type="submit">
+              Add book
+            </button>
+          </form>
         </div>
 
-        <div className={css.inputWrapper}>
-          <label className={css.label} htmlFor="author">
-            The author:
-          </label>
-          <input
-            className={clsx(css.author, css.input)}
-            id="author"
-            type="text"
-            {...register('author')}
-            placeholder="Hilarion Pavlyuk"
-          />
-        </div>
+        <div className={css.recomendedContainer}>
+          <h2 className={css.h2}>Recommended books</h2>
 
-        <div className={css.inputWrapper}>
-          <label className={css.label} htmlFor="numberOfPages">
-            Number of pages:
-          </label>
-          <input
-            className={clsx(css.numberOfPages, css.input)}
-            id="numberOfPages"
-            type="text"
-            {...register('numberOfPages')}
-            placeholder="664"
-          />
-        </div>
-        <button className={css.toApplyBtn} type="submit">
-          Add book
-        </button>
-      </form>
-
-      <div className={css.recomendedContainer}>
-        <h2 className={css.h2}>Recommended books</h2>
-
-        <div className="slider-container">
-          <Swiper spaceBetween={20} slidesPerView={3}>
-            {books.map(book => (
-              <SwiperSlide key={book._id}>
-                <BookItemLibrary book={book} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className={css.sliderContainer}>
+            <Swiper spaceBetween={20} slidesPerView={3}>
+              {books.map(book => (
+                <SwiperSlide key={book._id}>
+                  <BookItemLibrary book={book} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className={css.libraryDiv}>
+            <Link className={css.link} to="/">
+              Home
+            </Link>
+            <button className={css.arrowBtn} type="button">
+              <svg className={css.svg}>
+                <use href="/sprite.svg#log-in"></use>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
       {isLibraryModalOpen && <AddToLibraryModal book={book} />}

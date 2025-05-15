@@ -8,6 +8,8 @@ import {
   selectRecomendedBooks,
 } from '../../redux/books/selectors';
 import css from './RecommendedPage.module.css';
+import { Grid } from 'swiper/modules';
+import 'swiper/css/grid';
 // import Swiper from 'swiper';
 // import { SwiperSlide } from 'swiper/react';
 
@@ -23,8 +25,11 @@ import {
   selectBookTitle,
   selectIsLibraryModalOpen,
 } from '../../redux/filters/selectors';
+import { useMediaQuery } from 'react-responsive';
 
 function RecommendedPage() {
+  const isBigScreen = useMediaQuery({ query: '(min-width: 768px)' });
+
   const books = useSelector(selectRecomendedBooks);
 
   const title = useSelector(selectBookTitle);
@@ -45,16 +50,17 @@ function RecommendedPage() {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <div className={css.container}>
+    <div className={css.recomendedContainer}>
       <DashBoard children={<RecomendedBoard />} />
 
       <div className={css.contentContainer}>
         <h2 className={css.h2}>Recommended</h2>
 
-        <div className="slider-container">
+        <div className={css.sliderContainer}>
           <Swiper
-            spaceBetween={21}
-            slidesPerView={2}
+            modules={[Grid]}
+            spaceBetween={isBigScreen ? 25 : 21}
+            slidesPerView={isBigScreen ? 4 : 2}
             onSwiper={swiper => {
               swiper => (swiperRef.current = swiper);
               swiperRef.current = swiper;
@@ -66,6 +72,10 @@ function RecommendedPage() {
               setIsEnd(swiper.isEnd);
             }}
             loop={false}
+            grid={{
+              rows: isBigScreen ? 2 : 1,
+              fill: 'row',
+            }}
           >
             {filteredBooks.map(book => (
               <SwiperSlide key={book._id}>

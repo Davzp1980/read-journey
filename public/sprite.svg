@@ -86,7 +86,13 @@
     <path d="M12.833 13.4167V16.9167" stroke="#E85050" stroke-linecap="round" stroke-linejoin="round"></path>
     <path d="M15.167 13.4167V16.9167" stroke="#E85050" stroke-linecap="round" stroke-linejoin="round"></path>
   </symbol>  
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" id="1">
+    <circle cx="22" cy="22" r="22" fill="#F9F9F9"></circle>
+    <path d="M18.3528 15.3L22.0328 14H24.4328V28H21.6728V16.92L19.0328 17.66L18.3528 15.3Z" fill="#1F1F1F"></path>
+  </symbol>
 </svg>
+
+
 
 
 

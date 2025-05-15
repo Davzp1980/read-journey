@@ -1,8 +1,7 @@
 .container {
   box-sizing: border-box;
   position: relative;
-  width: 335px;
-  /* padding: 20px 20px 0px 20px; */
+
   background-color: #141414;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -17,6 +16,49 @@
   border-radius: 15px;
   background-color: #1f1f1f;
   padding: 11px 20px 11px 20px;
+}
+
+.logoDiv {
+  display: flex;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #f9f9f9;
+}
+
+.navLinks {
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: -0.02em;
+  color: #686868;
+}
+
+.active {
+  color: #f9f9f9;
+}
+
+.link.active::after {
+  content: '';
+  display: block;
+  width: 42px;
+  height: 4px;
+  border-radius: 8px;
+  background-color: #4f92f7;
+
+  position: absolute;
+  bottom: -8px;
 }
 
 .logoutBurger {
@@ -34,4 +76,44 @@
 .logoutSVG {
   width: 35px;
   height: 35px;
+}
+
+.logoutBtn {
+  border: 1px solid rgba(249, 249, 249, 0.2);
+  border-radius: 30px;
+  width: 114px;
+  height: 42px;
+  background-color: transparent;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: 0.02em;
+  color: #f9f9f9;
+}
+
+/* Планшетні пристрої (768px) */
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+    gap: 32px;
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .logoutBtn {
+    border: 1px solid rgba(249, 249, 249, 0.2);
+    border-radius: 30px;
+    width: 114px;
+    height: 42px;
+    background-color: transparent;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 112%;
+    letter-spacing: 0.02em;
+    color: #f9f9f9;
+  }
 }

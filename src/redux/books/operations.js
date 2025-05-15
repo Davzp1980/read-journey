@@ -82,8 +82,10 @@ export const addBookStartPage = createAsyncThunk(
 export const addBookEndPage = createAsyncThunk(
   'books/addBookEndPage',
   async function (data, thunkAPI) {
+    console.log(data);
+
     try {
-      const res = await axios.post(`/books/reading/finish`, data);
+      const res = await axios.post('/books/reading/finish', data);
 
       return res.data;
     } catch (err) {

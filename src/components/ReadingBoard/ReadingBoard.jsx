@@ -6,16 +6,11 @@ import clsx from 'clsx';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addBookStartPage, addNewBook } from '../../redux/books/operations';
+import { addBookStartPage } from '../../redux/books/operations';
 import toast from 'react-hot-toast';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { selectCurrentBook } from '../../redux/books/selectors';
 
-import {
-  selectCurrentBook,
-  selectRecomendedBooks,
-} from '../../redux/books/selectors';
-import BookItemLibrary from '../BookItemLibrary/BookItemLibrary';
 import AddToLibraryModal from '../AddToLibraryModal/AddToLibraryModal';
 import { selectIsLibraryModalOpen } from '../../redux/filters/selectors';
 import { setCurrentBook } from '../../redux/books/slice';
@@ -23,10 +18,7 @@ import { setCurrentBook } from '../../redux/books/slice';
 function ReadingBoard() {
   const dispatch = useDispatch();
 
-  const books = useSelector(selectRecomendedBooks);
   const book = useSelector(selectCurrentBook);
-
-  // console.log(book);
 
   const isLibraryModalOpen = useSelector(selectIsLibraryModalOpen);
 
@@ -68,42 +60,48 @@ function ReadingBoard() {
   }
   return (
     <div className={css.contentContainer}>
-      <p className={css.pPage}>Start page:</p>
+      <div className={css.readingBoardContainer}>
+        <div>
+          <p className={css.pPage}>Start page:</p>
 
-      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={css.inputWrapper}>
-          <label className={css.label} htmlFor="pageNumber">
-            Page number:
-          </label>
-          <input
-            className={clsx(css.pageNumber, css.input)}
-            id="pageNumber"
-            type="text"
-            {...register('pageNumber')}
-            placeholder="0"
-          />
+          <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor="pageNumber">
+                Page number:
+              </label>
+              <input
+                className={clsx(css.pageNumber, css.input)}
+                id="pageNumber"
+                type="text"
+                {...register('pageNumber')}
+                placeholder="0"
+              />
+            </div>
+            {errors.pageNumber && (
+              <span className={css.errorSpan}>Only digits are allowed</span>
+            )}
+
+            <button className={css.toApplyBtn} type="submit">
+              To start
+            </button>
+          </form>
         </div>
-        {errors.pageNumber && (
-          <span className={css.errorSpan}>Only digits are allowed</span>
-        )}
+        <div>
+          <p className={css.pProcess}>Progress</p>
 
-        <button className={css.toApplyBtn} type="submit">
-          To start
-        </button>
-      </form>
-      <p className={css.pProcess}>Progress</p>
+          <p className={css.pText}>
+            Here you will see when and how much you read. To record, click on
+            the red button above.
+          </p>
+          <img
+            className={css.noBooksIMG}
+            src="/public/noReadingBooksMobile.webp"
+            alt="noReadingBooksMobile"
+          />
 
-      <p className={css.pText}>
-        Here you will see when and how much you read. To record, click on the
-        red button above.
-      </p>
-      <img
-        className={css.noBooksIMG}
-        src="/public/noReadingBooksMobile.webp"
-        alt="noReadingBooksMobile"
-      />
-
-      {isLibraryModalOpen && <AddToLibraryModal book={book} />}
+          {isLibraryModalOpen && <AddToLibraryModal book={book} />}
+        </div>
+      </div>
     </div>
   );
 }

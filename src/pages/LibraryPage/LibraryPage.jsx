@@ -47,60 +47,62 @@ function LibraryPage() {
 
   return (
     <div>
-      <DashBoard children={<LibraryBoard />} />
+      <div className={css.libraryContainer}>
+        <DashBoard children={<LibraryBoard />} />
 
-      <div className={css.myLibraryContainer}>
-        <div className={css.h2AndMenu}>
-          <h2 className={css.myLibraryH2}>My library</h2>
-          <div className={css.selectContainer}>
-            <div className={css.selected} onClick={() => setIsOpen(!isOpen)}>
-              {selected} <IoChevronDown className={css.icon} />
-            </div>
-            {isOpen && (
-              <div className={css.options}>
-                {options.map(option => (
-                  <div
-                    key={option.name}
-                    className={`${css.option} ${
-                      option === selected ? css.selectedOption : ''
-                    }`}
-                    onClick={() => handleSelect(option)}
-                  >
-                    {option.name}
-                  </div>
-                ))}
+        <div className={css.myLibraryContainer}>
+          <div className={css.h2AndMenu}>
+            <h2 className={css.myLibraryH2}>My library</h2>
+            <div className={css.selectContainer}>
+              <div className={css.selected} onClick={() => setIsOpen(!isOpen)}>
+                {selected} <IoChevronDown className={css.icon} />
               </div>
-            )}
-          </div>
-        </div>
-        {filteredMyBooks.length < 1 && (
-          <div className={css.noBooksDiv}>
-            <div className={css.imgDiv}>
-              <img
-                className={css.booksImg}
-                src="/img/books_mobile.webp"
-                alt="books"
-              />
+              {isOpen && (
+                <div className={css.options}>
+                  {options.map(option => (
+                    <div
+                      key={option.name}
+                      className={`${css.option} ${
+                        option === selected ? css.selectedOption : ''
+                      }`}
+                      onClick={() => handleSelect(option)}
+                    >
+                      {option.name}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-            <p className={css.booksP}>
-              To start training, add{' '}
-              <span className={css.span}>some of your books</span> or from the
-              recommended ones
-            </p>
           </div>
-        )}
+          {filteredMyBooks.length < 1 && (
+            <div className={css.noBooksDiv}>
+              <div className={css.imgDiv}>
+                <img
+                  className={css.booksImg}
+                  src="/img/books_mobile.webp"
+                  alt="books"
+                />
+              </div>
+              <p className={css.booksP}>
+                To start training, add{' '}
+                <span className={css.span}>some of your books</span> or from the
+                recommended ones
+              </p>
+            </div>
+          )}
 
-        {myBooks.length > 0 && (
-          <div className={css.swiperContainer}>
-            <Swiper spaceBetween={20} slidesPerView={2}>
-              {filteredMyBooks?.map(book => (
-                <SwiperSlide key={book._id}>
-                  <BookItemMyLibrary book={book} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        )}
+          {myBooks.length > 0 && (
+            <div className={css.swiperContainer}>
+              <Swiper spaceBetween={20} slidesPerView={4}>
+                {filteredMyBooks?.map(book => (
+                  <SwiperSlide key={book._id}>
+                    <BookItemMyLibrary book={book} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

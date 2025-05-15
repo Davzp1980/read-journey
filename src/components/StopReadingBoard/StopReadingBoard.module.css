@@ -1,13 +1,6 @@
-/* .container {
-  margin: 0 auto;
-  margin-left: 0;
-  width: 200px;
-  background-color: #141414;
-} */
-
 .contentContainer {
   box-sizing: border-box;
-  width: 335px;
+
   margin: 0 auto;
   border-radius: 30px;
   background-color: #1f1f1f;
@@ -89,15 +82,6 @@
 .toApplyBtn:hover {
   background-color: #f9f9f9;
   color: #1f1f1f;
-}
-
-.p1 {
-  max-width: 180px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 129%;
-  letter-spacing: -0.02em;
-  color: #686868;
 }
 
 .errorSpan {
@@ -186,4 +170,70 @@
   letter-spacing: -0.02em;
   text-align: center;
   color: #686868;
+}
+
+@media (min-width: 768px) {
+  .contentContainer {
+    padding: 32px 16px 16px 32px;
+  }
+
+  .pPage {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .label {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .input {
+    height: 50px;
+  }
+
+  .input::placeholder {
+    font-size: 14px;
+    line-height: 129%;
+  }
+
+  .pageNumber {
+    padding-left: 111px;
+  }
+
+  .toApplyBtn {
+    width: 114px;
+    height: 42px;
+
+    font-size: 16px;
+    line-height: 112%;
+  }
+
+  .pStatistics {
+    font-size: 20px;
+  }
+
+  .readingBoardContainer {
+    display: flex;
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .contentContainer {
+    margin: 0;
+    max-width: 353px;
+  }
+
+  .readingBoardContainer {
+    flex-direction: column;
+  }
+
+  .pAfterStatistic {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: #686868;
+    margin-bottom: 20px;
+  }
 }

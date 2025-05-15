@@ -1,6 +1,6 @@
 .ReadingContainer {
   box-sizing: border-box;
-  width: 335px;
+
   margin: 0 auto;
   border-radius: 30px;
   background-color: #1f1f1f;
@@ -19,6 +19,8 @@
 }
 
 .ReadingBookCurrent {
+  display: flex;
+  justify-content: center;
   max-width: 50%;
   margin: 0 auto;
 
@@ -47,4 +49,23 @@
   height: 30px;
   background-color: #e90516;
   border-radius: 100%;
+}
+
+@media (min-width: 768px) {
+  .myReadingH2 {
+    font-size: 28px;
+    line-height: 114%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .readingPageContainer {
+    display: flex;
+    gap: 16px;
+  }
+
+  .ReadingContainer {
+    margin: 0;
+    width: 100%;
+  }
 }
