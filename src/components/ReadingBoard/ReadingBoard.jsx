@@ -95,7 +95,7 @@ function ReadingBoard() {
           </p>
           <img
             className={css.noBooksIMG}
-            src="/public/noReadingBooksMobile.webp"
+            src="/noReadingBooksMobile.webp"
             alt="noReadingBooksMobile"
           />
 
