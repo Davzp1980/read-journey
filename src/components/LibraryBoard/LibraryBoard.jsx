@@ -45,15 +45,15 @@ function LibraryBoard() {
         author: data.author,
         totalPages: data.numberOfPages,
       })
-        .unwrap()
-        .then(() => {
-          toast.success('The book was added successfully');
-        })
-        .catch(() => {
-          toast.error('Error adding a book');
-          return;
-        })
-    );
+    )
+      .unwrap()
+      .then(() => {
+        toast.success('The book was added successfully');
+      })
+      .catch(() => {
+        toast.error('Error adding a book');
+        return;
+      });
   }
   return (
     <div className={css.contentContainer}>

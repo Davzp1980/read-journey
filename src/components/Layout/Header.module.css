@@ -49,10 +49,26 @@
   color: #f9f9f9;
 }
 
+.active1 {
+  color: #f9f9f9;
+}
+
 .link.active::after {
   content: '';
   display: block;
   width: 42px;
+  height: 4px;
+  border-radius: 8px;
+  background-color: #4f92f7;
+
+  position: absolute;
+  bottom: -8px;
+}
+
+.link.active1::after {
+  content: '';
+  display: block;
+  width: 68px;
   height: 4px;
   border-radius: 8px;
   background-color: #4f92f7;

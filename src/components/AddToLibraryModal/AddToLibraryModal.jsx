@@ -7,10 +7,14 @@ import { selectIsLibraryModalOpen } from '../../redux/filters/selectors';
 import { enableScroll } from '../utils';
 import { addBookFromRecomended } from '../../redux/books/operations';
 import toast from 'react-hot-toast';
+import { selectFavoriteBooks } from '../../redux/books/selectors';
+import { setAddBookToLibrary } from '../../redux/books/slice';
 
 function AddToLibraryModal({ book }) {
   const dispatch = useDispatch();
   const isAddToLibraryModalOpen = useSelector(selectIsLibraryModalOpen);
+  const favoriteBooks = useSelector(selectFavoriteBooks);
+  console.log(favoriteBooks);
 
   useEffect(() => {
     const handleKeyDown = event => {
@@ -37,6 +41,14 @@ function AddToLibraryModal({ book }) {
   }
 
   function onClickAddToLibrary() {
+    dispatch(setAddBookToLibrary(book));
+    const isInFavorites = favoriteBooks.some(fav => fav.title === book.title);
+    console.log(book.title);
+
+    if (isInFavorites) {
+      toast.error('The book already presents in favorites');
+      return;
+    }
     dispatch(addBookFromRecomended(book._id))
       .unwrap()
       .then(() => {

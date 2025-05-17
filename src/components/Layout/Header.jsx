@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import { logOut } from '../../redux/auth/operations';
 import { useMediaQuery } from 'react-responsive';
 import { selectUser } from '../../redux/auth/selectors';
+import { useState } from 'react';
 
 function Header() {
   const isTabletScreen = useMediaQuery({ query: '(min-width: 768px)' });
@@ -25,9 +26,19 @@ function Header() {
     dispatch(logOut());
   }
 
-  function activeLink({ isActive }) {
-    return clsx(css.link, isActive && css.active);
+  const [link, setLink] = useState();
+
+  function onLinkClick(linkName) {
+    setLink(linkName);
   }
+
+  function activeLink({ isActive }) {
+    return clsx(
+      css.link,
+      isActive && (link === 'Home' ? css.active : css.active1)
+    );
+  }
+
   return (
     <div className={css.container}>
       <div className={css.contentContainer}>
@@ -39,10 +50,18 @@ function Header() {
         </div>
         {isTabletScreen && (
           <div className={css.navLinks}>
-            <NavLink className={activeLink} to="/">
+            <NavLink
+              className={activeLink}
+              to="/"
+              onClick={() => onLinkClick('Home')}
+            >
               Home
             </NavLink>
-            <NavLink className={activeLink} to="/library">
+            <NavLink
+              className={activeLink}
+              to="/library"
+              onClick={() => onLinkClick('My library')}
+            >
               My library
             </NavLink>
           </div>

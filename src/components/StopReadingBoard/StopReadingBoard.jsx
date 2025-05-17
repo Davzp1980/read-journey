@@ -51,7 +51,7 @@ function StopReadingBoard() {
     dispatch(
       addBookEndPage({
         id: book._id,
-        page: Number(data.pageNumber),
+        page: data.pageNumber,
       })
     )
       .unwrap()
@@ -68,10 +68,10 @@ function StopReadingBoard() {
 
         dispatch(setCurrentBook(data));
 
-        toast.success('The book`s start page number was successfully added');
+        toast.success('The book`s end page number was successfully added');
       })
       .catch(() => {
-        toast.error('Error adding a book`s page');
+        toast.error('Error adding a book`s end page');
         return;
       });
 
